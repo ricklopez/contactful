@@ -14,6 +14,7 @@ class ListContacts extends React.Component {
               <td>{c.name}</td>
               <td>{c.title}</td>
               <td>{c.description}</td>
+              <td><span id="edit" onClick={this.props.modeChange} className="mr-3">Edit</span><span>Delete</span></td>
             </tr>
        );
     });
@@ -26,6 +27,7 @@ class ListContacts extends React.Component {
               <th scope="col">Name</th>
               <th scope="col">Title</th>
               <th scope="col">Description</th>
+              <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>

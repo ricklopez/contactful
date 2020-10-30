@@ -14,14 +14,15 @@ class NavBar extends React.Component {
         </li>
        );
     });
-    return (    
+    return (  
+      <div className="container">
         <nav className="navbar navbar-light bg-light">
           <a className="navbar-brand">Contactful</a>
           <ul className="navbar-nav">
             {linkList}
           </ul>
         </nav>
-         
+      </div>   
     )
   }
 }

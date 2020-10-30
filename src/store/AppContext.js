@@ -15,7 +15,8 @@ class AppProvider extends React.Component {
      mode: 'light',
      changeMode: this.changeMode.bind(this),
      createContact: this.createContact.bind(this),
-     updateContact: this.updateContact.bind(this)
+     updateContact: this.updateContact.bind(this),
+     updateNewContact: this.updateNewContact.bind(this)
    };
    
  }
@@ -34,15 +35,36 @@ class AppProvider extends React.Component {
       };
     });
   }
+  
+  updateNewContact(event){
+    event.preventDefault();
+    if(event.target.id === 'inputName'){
+      const newContactData = {...this.state.newContact, name: event.target.value}
+      this.setState({newContact: newContactData});
+    }
+    
+    if(event.target.id === 'inputTitle'){
+      const newContactData = {...this.state.newContact, title: event.target.value}
+      debugger;
+    }
+    
+  }
 
   createContact(event){
     event.preventDefault();
+    const data = {
+      name: event.target[0].value,
+      title: event.target[1].value,
+      description: event.target[2].value,
+    };
+    
+    debugger;
    fetch('https://5f217bf8daa42f0016665c89.mockapi.io/api/v1/contacts',  {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(this.state.newContact)
+    body: JSON.stringify(data)
   })
   .then(resp => resp.json())
   .then(data => {
