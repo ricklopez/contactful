@@ -9,18 +9,19 @@ class NavBar extends React.Component {
   render(){
     const linkList = this.props.links.map((l) => {
        return(
-        <li key={l.id}>
+        <li className="nav-item" key={l.id}>
           <Link to={l.loc}>{l.label}</Link>
         </li>
        );
     });
     return (    
-        <nav>
-          <ul>
-           
+        <nav className="navbar navbar-light bg-light">
+          <a className="navbar-brand">Contactful</a>
+          <ul className="navbar-nav">
             {linkList}
           </ul>
         </nav>
+         
     )
   }
 }

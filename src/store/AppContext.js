@@ -35,7 +35,8 @@ class AppProvider extends React.Component {
     });
   }
 
-  createContact(){
+  createContact(event){
+    event.preventDefault();
    fetch('https://5f217bf8daa42f0016665c89.mockapi.io/api/v1/contacts',  {
     method: 'POST',
     headers: {
